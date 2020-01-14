@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fda2bc25e8d3545be0e2da58373719, type: 3}
+  m_Name: 3 - question
+  m_EditorClassIdentifier: 
+  storyText: "On sait jamais, il faut aller verifier.  \r\nEn allant dans la salle
+    de bain et les chambres, tu remarques que rien n'est derange. \nComment ca se
+    fait que seul le salon et la cuisine sont retournes ?\n\na) La proprietaire est
+    peut-etre venue fouiller\r\nb) Les chats ont tous casses\t\t\t\t\t\r\nc) Ton
+    frere qui est venu nourrir les chats\t\r\n"
+  nextStates:
+  - {fileID: 11400000, guid: 191b6fb04aa275f4686106fdd7bef08f, type: 2}
+  - {fileID: 11400000, guid: 131bc1692c77f694c8ed60ec7cdbb532, type: 2}
+  - {fileID: 11400000, guid: e89f528201dab4e4e8fc6da0b21fee47, type: 2}
+  image: {fileID: 21300000, guid: d68ed67ccf6e6044ebb5ef491967566f, type: 3}

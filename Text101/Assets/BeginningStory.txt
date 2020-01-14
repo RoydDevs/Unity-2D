@@ -1,0 +1,7 @@
+﻿Bonjour et bienvenue ! Tu rentres de vacances en traînant les pieds mais tu es heureux de retrouver tes chats Miaouss et Arya.
+En ouvrant la porte, tu décourages un vrai carnage dans l'appartement : tu as peur de d'être fait cambriolé.
+Tu dois comprendre ce qu'il s'est passé.
+
+Que fais tu en premier ?
+ 1) Tu regardes s'il manque des objets de valeur.
+ 2) Tu appelles la police.	

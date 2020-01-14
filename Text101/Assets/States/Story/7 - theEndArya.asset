@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fda2bc25e8d3545be0e2da58373719, type: 3}
+  m_Name: 7 - theEndArya
+  m_EditorClassIdentifier: 
+  storyText: "Arya etait cache sous le meuble !\t \r\nApr\xE8s avoir decouvert les
+    chats caches, tu comprends vite que ce sont eux les coupables, et ils le savent...\r\nca
+    ne sert a rien de les gronder, c'est trop tard. Tu commences a tout ranger, et
+    tu decouvres des griffes de chats et des poils prouvant que c'etait bien eux.\r\n\nEspace
+    pour continuer."
+  nextStates:
+  - {fileID: 11400000, guid: dd38501469a823e4e80dd46582a22c0b, type: 2}
+  image: {fileID: 21300000, guid: 5811673ef90ee8940bfc36ef16d6ba30, type: 3}

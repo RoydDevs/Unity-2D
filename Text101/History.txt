@@ -1,0 +1,51 @@
+Bonjour et bienvenue ! Tu rentres de vacances en traînant les pieds mais tu es heureux de retrouver tes chats Miaouss et Arya.
+En ouvrant la porte, tu décourages un vrai carnage dans l'appartement : tu as peur de d'être fait cambriolé.
+Tu dois comprendre ce qu'il s'est passé.
+
+ - 1
+Que fais tu en premier ?
+ 1) Tu regardes s'il manque des objets de valeur.	VRAI 
+ 2) Tu appelles la police.							FAUX : Avant de les appeler, il faudrait peut-être voir si des objets ont été volé...
+ 
+ - 2
+Tu remarques que la télé, les PC sont là et tu trouves tes clés de voiture par terre.
+Vu ce que tu as retrouvé, ça m'étonnerait que tu te sois fait cambriolé...
+ 1) Tu vas voir dans les autres pièces de l'appart  VRAI
+ 2) Tu vas voir les chats							FAUX : Attend encore un peu et vérifie tout !
+ 3) Tu commences à ranger l'appart					FAUX : T'as vérifié seulement le salon...
+
+ - 3
+On sait jamais, il faut aller vérifier.  
+En allant dans la salle de bain et les chambres, tu remarques que rien n'est dérangé. Comment ça se fait que seul le salon et la cuisine sont retournés ?
+ 1) La propriétaire est peut-être venue fouiller	FAUX : Tu l'appelles et elle devient folle de rage
+ 2) Les chats ont tous cassés						VRAI
+ 3) Ton frère qui est venu nourrir les chats		FAUX : Bien sûr que non, il peut pas et il nous aurait prévenu
+ 
+ - 4 
+Cela ne serait pas la première fois... Ils adorent fouiller et retourner des pots de fleurs...
+Tu cherches les chats :
+ 1) Tu regardes sur l'arbre à chat					FAUX : Non, on dirait qu'ils se cachent...
+ 2) Tu regardes sous le meuble de la cuisine		VRAI 
+ 3) Tu regardes dans ta chambre						VRAI
+ 
+		 - 5
+		Tiens ! Voilà Arya ! L'autre doit être caché quelque part d'autre...
+		Tu cherches Miaouss :
+		 1) Dans ta chambre							VRAI : 
+		 2) Sur les chaises							FAUX : Non il ne dort pas
+		 3) Dans la salle de bain					FAUX : Il ne vient pas souvent ici
+		 
+		 - 6
+		Tiens ! Voilà Miaouss ! L'autre doit être caché quelque part d'autre...
+		Tu cherches Arya :
+		 1) Dans la pièce des croquettes			FAUX : Non, mais ça n'aurait pas été étonnant...
+		 2) Sur les chaises							FAUX : Non elle ne dort pas
+		 3) Sous les meubles de cuisine				VRAI
+
+- 7
+Miaouss/Arya était caché sous le lit !	 
+Après avoir découvert les chats cachés, tu comprends vite que ce sont eux les coupables, et ils le savent...
+ça ne sert à rien de les gronder, c'est trop tard. Tu commences à tout ranger, et tu découvres des griffes de chats et des poils prouvant que c'était bien eux.
+
+BRAVO TU AS DECOUVERT LES COUPABLES !! MISSION ACCOMPLIE !!
+ 
