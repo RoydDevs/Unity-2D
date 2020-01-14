@@ -17,5 +17,5 @@ MonoBehaviour:
 
     Clique sur R...'
   nextStates:
-  - {fileID: 11400000}
+  - {fileID: 11400000, guid: b6983732792f9cb4985e3a46fa1ca795, type: 2}
   image: {fileID: 21300000, guid: 5c08c4fe8c2b2374087f52405b73edfd, type: 3}
