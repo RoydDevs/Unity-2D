@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class NumberWizard : MonoBehaviour
 {
-    int _min= 0;
-    int _max = 1000;
+    [SerializeField] int min;
+    [SerializeField] int max;
+    [SerializeField] TextMeshProUGUI guessText;
+    int guessNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -13,31 +16,25 @@ public class NumberWizard : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Welcome to number wizard");
-        Debug.Log($"Choisi un nombre entre {_min} et {_max}");
-        Debug.Log($"C'est {(_max - _min) / 2} ?");
+        guessNumber = (min + max) / 2;
+        guessText.text = guessNumber.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPressHigher()
     {
-        var numberTest = (_min+ _max) / 2;
+        min = guessNumber;
+        NextNumber();
+    }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _min= numberTest;
-            numberTest = (_max + _min) / 2;
-            Debug.Log($"C'est {numberTest} ?");
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            _max = numberTest;
-            numberTest = (_max + _min) / 2;
-            Debug.Log($"C'est {numberTest} ?");
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Debug.Log($"Trop facile :)");
-        }
+    public void OnPressLower()
+    {
+        max = guessNumber;
+        NextNumber();
+    }
+
+    public void NextNumber()
+    {
+        guessNumber = (max + min) / 2;
+        guessText.text = guessNumber.ToString();
     }
 }
