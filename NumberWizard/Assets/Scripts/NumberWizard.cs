@@ -6,6 +6,7 @@ public class NumberWizard : MonoBehaviour
     [SerializeField] int min;
     [SerializeField] int max;
     [SerializeField] TextMeshProUGUI guessText;
+
     int guessNumber;
 
     // Start is called before the first frame update
