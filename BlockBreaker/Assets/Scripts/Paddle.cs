@@ -16,10 +16,10 @@ public class Paddle : MonoBehaviour
     void Update()
     {
         var currentPosX = Input.mousePosition.x / Screen.width * screenWidthInUnits;
-        var paddlePos = new Vector2(transform.position.x, transform.position.y)
+        var paddlePos = new Vector2(this.transform.position.x, this.transform.position.y)
         {
             x = Mathf.Clamp(currentPosX, screenMinWidthUnits, screenMaxWidthUnits)
         };
-        transform.position = paddlePos;
+        this.transform.position = paddlePos;
     }
 }
