@@ -16,10 +16,16 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Play sound
         //Son plus fort : il part de la caméra
         //AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
         //Son plus faible -> il part du bloc
         AudioSource.PlayClipAtPoint(breakSound, this.transform.position);
+
+        //Destroy the block
         Destroy(gameObject);
+
+        //Update the counter
+        level.BlockDestroyed();
     }
 }

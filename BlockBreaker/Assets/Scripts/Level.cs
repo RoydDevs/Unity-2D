@@ -2,12 +2,16 @@
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] int breakableBlock; //Serialize for debugging purposes
+    //Config parameters
+    [SerializeField] int breakableBlock; //On met [SerializeField] pour pouvoir voir le nombre calculé dans Unity
+
+    //Cached references
+    private SceneLoader sceneLoader;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -19,5 +23,14 @@ public class Level : MonoBehaviour
     public void CountBreakableBlocks()
     {
         breakableBlock++;
+    }
+
+    public void BlockDestroyed()
+    {
+        breakableBlock--;
+        if (breakableBlock <= 0)
+        {
+            sceneLoader.LoadNextScene();
+        }
     }
 }
