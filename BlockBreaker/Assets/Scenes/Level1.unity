@@ -4552,6 +4552,11 @@ PrefabInstance:
       propertyPath: paddle1
       value: 
       objectReference: {fileID: 694419725}
+    - target: {fileID: 6039933283828949032, guid: edc72dda343335c4b94f52e7bc252687,
+        type: 3}
+      propertyPath: ballSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 125fdd1fea48ebd41a4db2fbdb150e1b, type: 3}
     - target: {fileID: 6039933283828949035, guid: edc72dda343335c4b94f52e7bc252687,
         type: 3}
       propertyPath: m_LocalPosition.x
