@@ -11,6 +11,21 @@ public class GameStatus : MonoBehaviour
     //State variable
     [SerializeField] int currentScore = 0;
 
+    private void Awake()
+    {
+        //Singleton : when change level, don't lose the score
+        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        if (gameStatusCount > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
