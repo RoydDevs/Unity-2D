@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class GameStatus : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     //Config parameters
     [Range(0.1f, 15f)] [SerializeField] float gameSpeed = 1f;
@@ -14,7 +14,7 @@ public class GameStatus : MonoBehaviour
     private void Awake()
     {
         //Singleton : when change level, don't lose the score
-        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        int gameStatusCount = FindObjectsOfType<GameSession>().Length;
         if (gameStatusCount > 1)
         {
             gameObject.SetActive(false);
@@ -42,5 +42,10 @@ public class GameStatus : MonoBehaviour
     {
         currentScore += pointsOneBlock;
         scoreText.text = currentScore.ToString();
+    }
+
+    public void ResetGame()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -6,7 +6,7 @@ public class Block : MonoBehaviour
 
     //Cached references
     private Level level;
-    private GameStatus gameStatus;
+    private GameSession gameSession;
 
     public void Start()
     {
@@ -14,8 +14,8 @@ public class Block : MonoBehaviour
         level = FindObjectOfType<Level>();
         level.CountBreakableBlocks();
 
-        //Get type object GameStatus to access to its methods
-        gameStatus = FindObjectOfType<GameStatus>();
+        //Get type object GameSession to access to its methods
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,13 +26,13 @@ public class Block : MonoBehaviour
         //Son plus faible -> il part du bloc
         AudioSource.PlayClipAtPoint(breakSound, this.transform.position);
 
-        //Destroy the block
+        //ResetGame the block
         Destroy(gameObject);
 
         //Update the counter
         level.BlockDestroyed();
 
         //Update the score
-        gameStatus.AddToScore();
+        gameSession.AddToScore();
     }
 }
