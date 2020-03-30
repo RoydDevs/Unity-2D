@@ -3,6 +3,7 @@
 public class Block : MonoBehaviour
 {
     [SerializeField] private AudioClip breakSound;
+    [SerializeField] private GameObject blockSparklesVFX;
 
     //Cached references
     private Level level;
@@ -20,6 +21,11 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        this.DestroyBlock();
+    }
+
+    private void DestroyBlock()
+    {
         //Play sound
         //Son plus fort : il part de la caméra
         //AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
@@ -34,5 +40,15 @@ public class Block : MonoBehaviour
 
         //Update the score
         gameSession.AddToScore();
+
+        //Animation destroyed
+        this.TriggerSparklesVfx();
+    }
+
+    private void TriggerSparklesVfx()
+    {
+        var sparkles = Instantiate(blockSparklesVFX, this.transform.position, this.transform.rotation);
+        //Destroy after 2 sec
+        Destroy(sparkles, 2f);
     }
 }
