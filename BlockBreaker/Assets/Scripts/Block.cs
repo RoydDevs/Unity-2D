@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
     [SerializeField] private AudioClip breakSound;
     [SerializeField] private GameObject blockSparklesVFX;
     [SerializeField] private int maxHits;
+    [SerializeField] private Sprite[] hitSprites;
 
     //Cached references
     private Level level;
@@ -42,6 +43,10 @@ public class Block : MonoBehaviour
             {
                 this.DestroyBlock();
             }
+            else
+            {
+                ShowNextHitSprite();
+            }
         }
     }
 
@@ -71,5 +76,10 @@ public class Block : MonoBehaviour
         var sparkles = Instantiate(blockSparklesVFX, this.transform.position, this.transform.rotation);
         //Destroy after 2 sec
         Destroy(sparkles, 2f);
+    }
+
+    public void ShowNextHitSprite()
+    {
+        GetComponent<SpriteRenderer>().sprite = hitSprites[timesHit - 1];
     }
 }

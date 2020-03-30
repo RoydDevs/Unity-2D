@@ -98,6 +98,8 @@ MonoBehaviour:
   breakSound: {fileID: 8300000, guid: 91560642fd1a24b4d8462b84e2d25ab6, type: 3}
   blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   maxHits: 2
+  hitSprites:
+  - {fileID: 21300000, guid: f371a5879139c5f4885df66d83771c73, type: 3}
   timesHit: 0
 --- !u!61 &9171701048343827711
 BoxCollider2D:
