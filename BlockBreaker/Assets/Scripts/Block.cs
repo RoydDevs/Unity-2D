@@ -11,17 +11,27 @@ public class Block : MonoBehaviour
 
     public void Start()
     {
-        //Get type object Level to access to its methods
-        level = FindObjectOfType<Level>();
-        level.CountBreakableBlocks();
+        //Count breakables blocks
+        this.CountBlocks();
 
         //Get type object GameSession to access to its methods
         gameSession = FindObjectOfType<GameSession>();
     }
 
+    private void CountBlocks()
+    {
+        //Get type object Level to access to its methods
+        level = FindObjectOfType<Level>();
+        if (this.tag == "Breakable")
+        {
+            level.CountBreakableBlocks();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        this.DestroyBlock();
+        if(this.tag == "Breakable")
+            this.DestroyBlock();
     }
 
     private void DestroyBlock()
