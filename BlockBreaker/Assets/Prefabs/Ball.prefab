@@ -119,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0060176263, y: -0.0098817125}
+  m_Offset: {x: -0.0034094062, y: 0.005076489}
   serializedVersion: 2
-  m_Radius: 0.6016823
+  m_Radius: 0.5969615
 --- !u!114 &6039933283828949032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 917faca20e6fcdc4cbdff67b5f0dc6d5, type: 3}
   - {fileID: 8300000, guid: 05ec64fefbeda3a4e875fd44805f8336, type: 3}
   - {fileID: 8300000, guid: 125fdd1fea48ebd41a4db2fbdb150e1b, type: 3}
-  randomFactor: 0.5
+  randomFactor: 0.7
 --- !u!82 &4137070633895126174
 AudioSource:
   m_ObjectHideFlags: 0
