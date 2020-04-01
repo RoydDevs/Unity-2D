@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688143506750418195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.74, y: 0.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.43, y: 0.46, z: 0}
+  m_LocalScale: {x: 0.835289, y: 0.89474803, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 776043e5acd1cad4895ca21391d8ac06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a643aaabb222557458fb6d8e8361f468, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.5}
+    oldSize: {x: 3.88, y: 1.31}
     newSize: {x: 2.56, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -108,13 +108,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.51815057, y: 0.25217435}
-      - {x: -0.5224974, y: 0.25000003}
-      - {x: -1.0021734, y: 0.047279984}
+    - - {x: 1.1491613, y: 0.54147947}
+      - {x: 0.9006853, y: 0.575098}
+      - {x: -0.5483074, y: 0.5898649}
+      - {x: -1.2156954, y: 0.5957302}
+      - {x: -1.5459628, y: 0.49841458}
+      - {x: -1.8242483, y: 0.31554955}
+      - {x: -1.8830299, y: 0.03168264}
       - {x: -1, y: -0.25}
-      - {x: 1, y: -0.25}
-      - {x: 1.0021732, y: 0.052918166}
-      - {x: 0.83159065, y: 0.123230696}
+      - {x: 1.4864044, y: -0.28287566}
+      - {x: 1.620038, y: -0.17063615}
+      - {x: 1.7778711, y: 0.072758615}
+      - {x: 1.8557587, y: 0.22083789}
+      - {x: 1.7452421, y: 0.39938593}
 --- !u!114 &3688143506750418199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenWidthInUnits: 16
-  screenMinWidthUnits: 1
-  screenMaxWidthUnits: 15
+  screenMinWidthUnits: 1.5
+  screenMaxWidthUnits: 14.5
