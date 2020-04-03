@@ -14,6 +14,7 @@ public class GameSession : MonoBehaviour
 
     //State variable
     [SerializeField] int currentScore = 0;
+    private float timerBallReset = 5.0f;
     private float timerBall = 5.0f;
     private bool timerBallRunning;
     private const float SpeedGame = 1.0f;
@@ -64,7 +65,7 @@ public class GameSession : MonoBehaviour
         this.gameSpeed = speed;
         if(timerBallRunning == false) timerBallRunning = true;
         //If another ball block is touched -> reset timer
-        if(timerBallRunning) timerBall = 5.0f;
+        if(timerBallRunning) timerBall = timerBallReset;
 
         timerBallText.color = speed >= SpeedGame ? Color.red : Color.green;
     }
@@ -80,7 +81,7 @@ public class GameSession : MonoBehaviour
             {
                 this.ChangeSpeedGame(SpeedGame);
                 timerBallRunning = false;
-                timerBall = 5.0f;
+                timerBall = timerBallReset;
                 timerBallText.text = "";
             }
             else

@@ -10,10 +10,14 @@ public class Block : MonoBehaviour
     //Cached references
     private Level level;
     private GameSession gameSession;
+    private Paddle paddle;
 
     //State variables
     [SerializeField] private int timesHit; //Serialize only to debug 
-    int i;
+    private float minSpeedBall = 0.5f;
+    private float maxSpeedBall = 2.0f;
+    private float minWidthPaddle = -0.5f;
+    private float maxWidthPaddle = 0.5f;
 
     public void Start()
     {
@@ -22,6 +26,7 @@ public class Block : MonoBehaviour
 
         //Get type object GameSession to access to its methods
         gameSession = FindObjectOfType<GameSession>();
+        paddle = FindObjectOfType<Paddle>();
     }
 
     private void CountBlocks()
@@ -43,13 +48,14 @@ public class Block : MonoBehaviour
 
         if (this.tag == "SpeedBall")
         {
-            gameSession.ChangeSpeedGame(Random.Range(0.5f, 2.0f));
+            gameSession.ChangeSpeedGame(Random.Range(minSpeedBall, maxSpeedBall));
             this.DestroyBlockCountingHits();
         }
 
         if (this.tag == "WidthPaddle")
         {
-            this.DestroyBlock();
+            paddle.ChangePaddleWidth(Random.Range(-minWidthPaddle, maxWidthPaddle));
+            this.DestroyBlockCountingHits();
         }
     }
 
