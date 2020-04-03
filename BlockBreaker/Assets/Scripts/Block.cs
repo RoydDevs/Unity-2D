@@ -13,6 +13,7 @@ public class Block : MonoBehaviour
 
     //State variables
     [SerializeField] private int timesHit; //Serialize only to debug 
+    int i;
 
     public void Start()
     {
@@ -27,7 +28,7 @@ public class Block : MonoBehaviour
     {
         //Get type object Level to access to its methods
         level = FindObjectOfType<Level>();
-        if (this.tag == "Breakable")
+        if (this.tag == "Breakable" || this.tag == "SpeedBall" || this.tag == "WidthPaddle")
         {
             level.CountBreakableBlocks();
         }
@@ -37,16 +38,32 @@ public class Block : MonoBehaviour
     {
         if(this.tag == "Breakable")
         {
-            timesHit++;
-            var maxHits = hitSprites.Length + 1;
-            if(timesHit >= maxHits)
-            {
-                this.DestroyBlock();
-            }
-            else
-            {
-                ShowNextHitSprite();
-            }
+           this.DestroyBlockCountingHits();
+        }
+
+        if (this.tag == "SpeedBall")
+        {
+            gameSession.ChangeSpeedGame(Random.Range(0.5f, 2.0f));
+            this.DestroyBlockCountingHits();
+        }
+
+        if (this.tag == "WidthPaddle")
+        {
+            this.DestroyBlock();
+        }
+    }
+
+    private void DestroyBlockCountingHits()
+    {
+        timesHit++;
+        var maxHits = hitSprites.Length + 1;
+        if (timesHit >= maxHits)
+        {
+            this.DestroyBlock();
+        }
+        else
+        {
+            ShowNextHitSprite();
         }
     }
 
