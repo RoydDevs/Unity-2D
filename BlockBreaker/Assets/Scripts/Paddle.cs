@@ -5,15 +5,13 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     [SerializeField] float screenWidthInUnits = 16f;
-    [SerializeField] float screenMinWidthUnitsReset = 1.5f;
-    [SerializeField] float screenMaxWidthUnitsReset = 15f;
     [SerializeField] float screenMinWidthUnits = 1.5f;
     [SerializeField] float screenMaxWidthUnits = 15f;
     [SerializeField] TextMeshProUGUI timerPaddleText;
 
     private float timerPaddle = 5.0f;
     private float timerPaddleReset = 5.0f;
-    [SerializeField] private float lastWidthToReset;
+    private float lastWidthToReset;
     private bool timerPaddleRunning;
 
     // Start is called before the first frame update
@@ -39,7 +37,6 @@ public class Paddle : MonoBehaviour
             var timerSecond = Convert.ToInt32(timerPaddle % 60);
             if (timerSecond == 0)
             {
-                Debug.Log($"TIMER END END END GO TO RESET");
                 //Reset paddle size
                 this.ResetPaddleSize();
                 //Clear timer
@@ -56,12 +53,18 @@ public class Paddle : MonoBehaviour
 
     public void UpdatePaddleSize(float widthToAdd)
     {
+        if(timerPaddleRunning)
+        {
+            timerPaddle = timerPaddleReset;
+            this.ResetPaddleSize();
+        }
+
         //Paddle size
         var tempLocalScale = transform.localScale;
         tempLocalScale.x += widthToAdd;
         this.transform.localScale = tempLocalScale;
         //Start timer
-        timerPaddleRunning = true;
+        if(!timerPaddleRunning) timerPaddleRunning = true;
         //Text color timer
         timerPaddleText.color = widthToAdd >= 0 ? Color.green : Color.red;
         //Paddle position min and max

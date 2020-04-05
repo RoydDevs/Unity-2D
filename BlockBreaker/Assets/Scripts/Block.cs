@@ -54,8 +54,6 @@ public class Block : MonoBehaviour
 
         if (this.tag == "WidthPaddle")
         {
-            //Random.Range(minWidthPaddle, maxWidthPaddle)
-            Debug.Log($"Block paddle broken");
             paddle.UpdatePaddleSize(Random.Range(minWidthPaddle, maxWidthPaddle));
             this.DestroyBlockCountingHits();
         }
