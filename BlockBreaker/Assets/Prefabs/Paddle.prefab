@@ -135,5 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenWidthInUnits: 16
+  screenMinWidthUnitsReset: 1.5
+  screenMaxWidthUnitsReset: 14.5
   screenMinWidthUnits: 1.5
   screenMaxWidthUnits: 14.5
+  timerPaddleText: {fileID: 0}

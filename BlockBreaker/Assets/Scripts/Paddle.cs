@@ -5,18 +5,21 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     [SerializeField] float screenWidthInUnits = 16f;
-    [SerializeField] float screenMinWidthUnits = 1f;
+    [SerializeField] float screenMinWidthUnitsReset = 1.5f;
+    [SerializeField] float screenMaxWidthUnitsReset = 15f;
+    [SerializeField] float screenMinWidthUnits = 1.5f;
     [SerializeField] float screenMaxWidthUnits = 15f;
     [SerializeField] TextMeshProUGUI timerPaddleText;
 
     private float timerPaddle = 5.0f;
-    private float widthReceived;
+    private float timerPaddleReset = 5.0f;
+    [SerializeField] private float lastWidthToReset;
     private bool timerPaddleRunning;
-    private Vector3 scaleChange;
 
     // Start is called before the first frame update
     void Start()
     {
+        timerPaddleRunning = false;
         timerPaddleText.text = "";
     }
 
@@ -36,9 +39,13 @@ public class Paddle : MonoBehaviour
             var timerSecond = Convert.ToInt32(timerPaddle % 60);
             if (timerSecond == 0)
             {
-                this.ChangePaddleWidth(-widthReceived);
-                timerPaddleRunning = false;
+                Debug.Log($"TIMER END END END GO TO RESET");
+                //Reset paddle size
+                this.ResetPaddleSize();
+                //Clear timer
+                timerPaddle = timerPaddleReset;
                 timerPaddleText.text = "";
+                timerPaddleRunning = false;
             }
             else
             {
@@ -47,17 +54,47 @@ public class Paddle : MonoBehaviour
         }
     }
 
-    public void ChangePaddleWidth(float width)
+    public void UpdatePaddleSize(float widthToAdd)
     {
-        //To reset the paddle
-        widthReceived = width;
-        scaleChange = new Vector3(widthReceived, 0f, 0f);
-        this.transform.localScale += scaleChange;
-        screenMaxWidthUnits -= widthReceived >= 0 ? widthReceived : widthReceived * 2;
-        screenMinWidthUnits += widthReceived >= 0 ? widthReceived : widthReceived * 2;
-        if (timerPaddleRunning == false) timerPaddleRunning = true;
+        //Paddle size
+        var tempLocalScale = transform.localScale;
+        tempLocalScale.x += widthToAdd;
+        this.transform.localScale = tempLocalScale;
+        //Start timer
+        timerPaddleRunning = true;
+        //Text color timer
+        timerPaddleText.color = widthToAdd >= 0 ? Color.green : Color.red;
+        //Paddle position min and max
+        if (widthToAdd >= 0)
+        {
+            screenMinWidthUnits += widthToAdd;
+            screenMaxWidthUnits -= widthToAdd;
+        }
+        else
+        {
+            screenMinWidthUnits += widthToAdd * 2;
+            screenMaxWidthUnits -= widthToAdd * 2;
+        }
+        //To reset after -> send the opposite
+        lastWidthToReset = -widthToAdd;
+    }
 
-
-        timerPaddleText.color = widthReceived >= 0 ? Color.green : Color.red;
+    public void ResetPaddleSize()
+    {
+        //Paddle size
+        var tempLocalScale = transform.localScale;
+        tempLocalScale.x += lastWidthToReset;
+        this.transform.localScale = tempLocalScale;
+        //Paddle position min and max
+        if(lastWidthToReset >= 0)
+        {
+            screenMinWidthUnits += lastWidthToReset * 2;
+            screenMaxWidthUnits -= lastWidthToReset * 2;
+        }
+        else
+        {
+            screenMinWidthUnits += lastWidthToReset;
+            screenMaxWidthUnits -= lastWidthToReset;
+        }
     }
 }
