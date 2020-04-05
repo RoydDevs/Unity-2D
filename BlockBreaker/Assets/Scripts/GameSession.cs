@@ -7,17 +7,18 @@ public class GameSession : MonoBehaviour
     //Config parameters
     [Range(0.1f, 15f)] [SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsOneBlock = 50;
+    [SerializeField] TextMeshProUGUI liveText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI timerBallText;
+    [SerializeField] private int totalLives = 3;
 
     //State variable
+    [SerializeField] public int livesLeft = 3;
     [SerializeField] int currentScore = 0;
     private float timerBallReset = 5.0f;
     private float timerBall = 5.0f;
     private bool timerBallRunning;
     private const float SpeedGame = 1.0f;
-
-    //Stop ball and paddle timer when lose
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        liveText.text = $"x{livesLeft}";
         scoreText.text = currentScore.ToString();
         timerBallText.text = "";
     }
@@ -59,13 +61,15 @@ public class GameSession : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    #region Speed Ball
+
     //Change speed of the ball
     public void ChangeSpeedGame(float speed)
     {
         this.gameSpeed = speed;
-        if(timerBallRunning == false) timerBallRunning = true;
+        if (timerBallRunning == false) timerBallRunning = true;
         //If another ball block is touched -> reset timer
-        if(timerBallRunning) timerBall = timerBallReset;
+        if (timerBallRunning) timerBall = timerBallReset;
 
         timerBallText.color = speed >= SpeedGame ? Color.red : Color.green;
     }
@@ -92,4 +96,19 @@ public class GameSession : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region Lifes
+
+    public bool LoseLive()
+    {
+        if (livesLeft <= 0) return false;
+        livesLeft--;
+        liveText.text = $"x{livesLeft}";
+        Ball.lostLive = true;
+        return true;
+    }
+
+    #endregion
 }

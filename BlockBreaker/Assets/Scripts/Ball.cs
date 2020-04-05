@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
     //State
     private Vector2 paddleToBallVector;
     private bool hasStarted = false;
+    public static bool lostLive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,12 @@ public class Ball : MonoBehaviour
             LockBallToPaddle();
             LaunchOnMouseClick();
         }
+
+        if (lostLive)
+        {
+            LockBallToPaddle();
+            LaunchOnMouseClick();
+        }
     }
 
     private void LaunchOnMouseClick()
@@ -41,6 +48,7 @@ public class Ball : MonoBehaviour
         {
             this.rigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
             hasStarted = true;
+            lostLive = false;
         }
     }
 
@@ -48,6 +56,7 @@ public class Ball : MonoBehaviour
     {
         var paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
         this.transform.position = paddlePos + paddleToBallVector;
+        LoseCollider.StopTimers = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
