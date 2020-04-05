@@ -17,7 +17,6 @@ public class Paddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerPaddleRunning = false;
         timerPaddleText.text = "";
     }
 
@@ -30,6 +29,8 @@ public class Paddle : MonoBehaviour
             x = Mathf.Clamp(currentPosX, screenMinWidthUnits, screenMaxWidthUnits)
         };
         this.transform.position = paddlePos;
+
+        if (LoseCollider.StopTimers) timerPaddle = 0f;
 
         if (timerPaddleRunning)
         {

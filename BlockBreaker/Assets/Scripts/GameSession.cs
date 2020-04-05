@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +16,8 @@ public class GameSession : MonoBehaviour
     private float timerBall = 5.0f;
     private bool timerBallRunning;
     private const float SpeedGame = 1.0f;
+
+    //Stop ball and paddle timer when lose
 
     private void Awake()
     {
@@ -73,6 +73,8 @@ public class GameSession : MonoBehaviour
     //Timer to reset the speed of the ball after X sec
     public void ShowSpeedBallTimeLeft()
     {
+        if (LoseCollider.StopTimers) timerBall = 0f;
+
         if (timerBallRunning)
         {
             timerBall -= Time.deltaTime;
