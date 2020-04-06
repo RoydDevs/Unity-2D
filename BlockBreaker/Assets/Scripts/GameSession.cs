@@ -19,6 +19,7 @@ public class GameSession : MonoBehaviour
     private float timerBall = 5.0f;
     private bool timerBallRunning;
     private const float SpeedGame = 1.0f;
+    private int levelPassed = 1;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            levelPassed++;
             DontDestroyOnLoad(this.gameObject);
         }
     }
@@ -111,4 +113,9 @@ public class GameSession : MonoBehaviour
     }
 
     #endregion
+
+    public (int points, int lives, int levelPassed) SaveResults()
+    {
+        return (currentScore, livesLeft, levelPassed);
+    }
 }
