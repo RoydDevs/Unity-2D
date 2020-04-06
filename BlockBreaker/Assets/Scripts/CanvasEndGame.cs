@@ -9,7 +9,6 @@ public class CanvasEndGame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lives;
     [SerializeField] private TextMeshProUGUI finalScore;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +17,14 @@ public class CanvasEndGame : MonoBehaviour
 
     private void ShowFinalScore()
     {
-        var (finalPoints, finalLives, levelPassed) = FindObjectOfType<GameSession>().SaveResults();
+        var (finalPoints, finalLives) = FindObjectOfType<GameSession>().SaveResults();
 
         points.text = $"Points = {finalPoints}";
         lives.text = $"Lives = {finalLives}";
 
         if (finalLives <= 0)
         {
-            titlePage.text = "Game Over";
+            titlePage.text = "Game Over...";
             titlePage.color = Color.red;
         }
         else
@@ -35,6 +34,8 @@ public class CanvasEndGame : MonoBehaviour
             finalScore.text = $"Final score = {finalPoints * finalLives}";
         }
 
+        var levelPassed = FindObjectOfType<GameSession>().GetLevelPassed();
+        levelWon.text = $"Level won : {levelPassed}";
         finalScore.text = $"Final score = {(levelPassed + finalLives) * finalPoints}";
     }
 }

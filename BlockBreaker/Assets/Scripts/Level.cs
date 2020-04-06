@@ -7,11 +7,13 @@ public class Level : MonoBehaviour
 
     //Cached references
     private SceneLoader sceneLoader;
+    private GameSession gameSession;
 
     // Start is called before the first frame update
     void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoader>();
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class Level : MonoBehaviour
         breakableBlock--;
         if (breakableBlock <= 0)
         {
+            gameSession.LevelPassed();
             sceneLoader.LoadNextScene();
         }
     }

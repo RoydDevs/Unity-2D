@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class GameSession : MonoBehaviour
     private float timerBall = 5.0f;
     private bool timerBallRunning;
     private const float SpeedGame = 1.0f;
-    private int levelPassed = 1;
+
+    private int levelPassed = 0;
 
     private void Awake()
     {
@@ -32,7 +34,6 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            levelPassed++;
             DontDestroyOnLoad(this.gameObject);
         }
     }
@@ -40,6 +41,7 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelPassed = 0;
         liveText.text = $"x{livesLeft}";
         scoreText.text = currentScore.ToString();
         timerBallText.text = "";
@@ -112,10 +114,26 @@ public class GameSession : MonoBehaviour
         return true;
     }
 
+    public void WinLive()
+    {
+        livesLeft++;
+        liveText.text = $"x{livesLeft}";
+    }
+
     #endregion
 
-    public (int points, int lives, int levelPassed) SaveResults()
+    public (int points, int lives) SaveResults()
     {
-        return (currentScore, livesLeft, levelPassed);
+        return (currentScore, livesLeft);
+    }
+
+    public void LevelPassed()
+    {
+        levelPassed++;
+    }
+
+    public int GetLevelPassed()
+    {
+        return levelPassed;
     }
 }

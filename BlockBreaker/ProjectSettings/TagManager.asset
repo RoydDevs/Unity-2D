@@ -8,6 +8,7 @@ TagManager:
   - Unbreakable
   - SpeedBall
   - WidthPaddle
+  - LiveBlock
   layers:
   - Default
   - TransparentFX

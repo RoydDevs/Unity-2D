@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Block : MonoBehaviour
 {
@@ -29,11 +31,19 @@ public class Block : MonoBehaviour
         paddle = FindObjectOfType<Paddle>();
     }
 
+    public enum BreakableBlock
+    {
+        Breakable,
+        SpeedBall,
+        WidthPaddle,
+        LiveBlock
+    }
+
     private void CountBlocks()
     {
         //Get type object Level to access to its methods
         level = FindObjectOfType<Level>();
-        if (this.tag == "Breakable" || this.tag == "SpeedBall" || this.tag == "WidthPaddle")
+        if (Enum.IsDefined(typeof(BreakableBlock), this.tag))
         {
             level.CountBreakableBlocks();
         }
@@ -41,20 +51,26 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(this.tag == "Breakable")
+        if(this.tag.Equals(BreakableBlock.Breakable.ToString()))
         {
            this.DestroyBlockCountingHits();
         }
 
-        if (this.tag == "SpeedBall")
+        if (this.tag.Equals(BreakableBlock.SpeedBall.ToString()))
         {
             gameSession.ChangeSpeedGame(Random.Range(minSpeedBall, maxSpeedBall));
             this.DestroyBlockCountingHits();
         }
 
-        if (this.tag == "WidthPaddle")
+        if (this.tag.Equals(BreakableBlock.WidthPaddle.ToString()))
         {
             paddle.UpdatePaddleSize(Random.Range(minWidthPaddle, maxWidthPaddle));
+            this.DestroyBlockCountingHits();
+        }
+
+        if (this.tag.Equals(BreakableBlock.LiveBlock.ToString()))
+        {
+            gameSession.WinLive();
             this.DestroyBlockCountingHits();
         }
     }
