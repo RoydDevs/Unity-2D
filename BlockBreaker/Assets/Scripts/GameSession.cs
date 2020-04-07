@@ -159,7 +159,13 @@ public class GameSession : MonoBehaviour
         var dictionary = new Dictionary<int, string>
         {
             {1, "Level 1\nThe Earth"},
-            {2, "Level 2\nMars"}
+            {2, "Level 2\nMars"},
+            {3, "Level 3\nVenus"},
+            {4, "Level 2\nMercure"},
+            {5, "Level 2\nNeptune"},
+            {6, "Level 2\nSaturne"},
+            {7, "Level 2\nJupiter"},
+            {8, "Level 2\nUranus"}
         };
         return dictionary;
     }
