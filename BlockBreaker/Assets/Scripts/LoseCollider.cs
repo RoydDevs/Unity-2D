@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class LoseCollider : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LoseCollider : MonoBehaviour
 
     void Start()
     {
+        StopTimers = true;
         gameSession = FindObjectOfType<GameSession>();
     }
 
