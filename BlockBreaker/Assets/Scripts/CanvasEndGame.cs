@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class CanvasEndGame : MonoBehaviour
@@ -19,9 +20,6 @@ public class CanvasEndGame : MonoBehaviour
     {
         var (finalPoints, finalLives) = FindObjectOfType<GameSession>().SaveResults();
 
-        points.text = $"Points = {finalPoints}";
-        lives.text = $"Lives = {finalLives}";
-
         if (finalLives <= 0)
         {
             titlePage.text = "Game Over...";
@@ -31,11 +29,24 @@ public class CanvasEndGame : MonoBehaviour
         {
             titlePage.text = "Congratulations !";
             titlePage.color = Color.green;
+            StartCoroutine(Wait(0.5f));
             finalScore.text = $"Final score = {finalPoints * finalLives}";
         }
 
         var levelPassed = FindObjectOfType<GameSession>().GetLevelPassed();
-        levelWon.text = $"Level won : {levelPassed}";
+        StartCoroutine(Wait(0.5f));
+        levelWon.text = $"Level won = {levelPassed}";
+        StartCoroutine(Wait(0.5f));
+        points.text = $"Points = {finalPoints}";
+        StartCoroutine(Wait(0.5f));
+        lives.text = $"Lives = {finalLives}";
+
+        StartCoroutine(Wait(1.0f));
         finalScore.text = $"Final score = {(levelPassed + finalLives) * finalPoints}";
+    }
+
+    IEnumerator Wait(float duration)
+    {
+        yield return new WaitForSeconds(duration);   //Wait
     }
 }
