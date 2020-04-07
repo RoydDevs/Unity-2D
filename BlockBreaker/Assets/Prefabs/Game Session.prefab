@@ -50,6 +50,7 @@ MonoBehaviour:
   scoreText: {fileID: 1601002127246221689}
   timerBallText: {fileID: 8479875664449265350}
   totalLives: 3
+  titleLevel: {fileID: 8947236457573556758}
   livesLeft: 3
   currentScore: 0
 --- !u!1001 &1601002126398120831
@@ -169,6 +170,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7646301641506963817, guid: 1197ec7bbd0420c4da30c64bd9ff1644,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4283124298
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1197ec7bbd0420c4da30c64bd9ff1644, type: 3}
 --- !u!224 &4759532486113155856 stripped
@@ -204,6 +210,18 @@ MonoBehaviour:
 --- !u!114 &8867857930578054714 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7865276432747244869, guid: 1197ec7bbd0420c4da30c64bd9ff1644,
+    type: 3}
+  m_PrefabInstance: {fileID: 1601002126398120831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8947236457573556758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7646301641506963817, guid: 1197ec7bbd0420c4da30c64bd9ff1644,
     type: 3}
   m_PrefabInstance: {fileID: 1601002126398120831}
   m_PrefabAsset: {fileID: 0}

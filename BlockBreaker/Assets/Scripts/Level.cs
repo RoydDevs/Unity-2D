@@ -32,8 +32,8 @@ public class Level : MonoBehaviour
         breakableBlock--;
         if (breakableBlock <= 0)
         {
-            gameSession.LevelPassed();
             sceneLoader.LoadNextScene();
+            gameSession.LevelPassed();
         }
     }
 }

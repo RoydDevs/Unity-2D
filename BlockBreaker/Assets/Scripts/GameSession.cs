@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +14,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI timerBallText;
     [SerializeField] private int totalLives = 3;
+    [SerializeField] private TextMeshProUGUI titleLevel;
 
     //State variable
     [SerializeField] public int livesLeft = 3;
@@ -129,11 +132,35 @@ public class GameSession : MonoBehaviour
 
     public void LevelPassed()
     {
+        //Reset animation level title
+        this.titleLevel.GetComponent<Animator>().Rebind();
+        //Reset text for each level
+        string titleText = "";
+        try
+        {
+            titleText = this.TitleText().FirstOrDefault(x => x.Key == SceneManager.GetActiveScene().buildIndex+1).Value;
+        }
+        catch
+        {
+            Debug.Log($"No title defined for this level");
+            titleText = "";
+        }
+        this.titleLevel.text = $"{titleText}";
         levelPassed++;
     }
 
     public int GetLevelPassed()
     {
         return levelPassed;
+    }
+
+    public Dictionary<int, string> TitleText()
+    {
+        var dictionary = new Dictionary<int, string>
+        {
+            {1, "Level 1\nThe Earth"},
+            {2, "Level 2\nMars"}
+        };
+        return dictionary;
     }
 }
