@@ -12,7 +12,6 @@ public class Block : MonoBehaviour
     //Cached references
     private Level level;
     private GameSession gameSession;
-    private Paddle paddle;
 
     //State variables
     [SerializeField] private int timesHit; //Serialize only to debug 
@@ -28,7 +27,6 @@ public class Block : MonoBehaviour
 
         //Get type object GameSession to access to its methods
         gameSession = FindObjectOfType<GameSession>();
-        paddle = FindObjectOfType<Paddle>();
     }
 
     public enum BreakableBlock
@@ -64,7 +62,7 @@ public class Block : MonoBehaviour
 
         if (this.tag.Equals(BreakableBlock.WidthPaddle.ToString()))
         {
-            paddle.UpdatePaddleSize(Random.Range(minWidthPaddle, maxWidthPaddle));
+            gameSession.UpdatePaddleSize(Random.Range(minWidthPaddle, maxWidthPaddle));
             this.DestroyBlockCountingHits();
         }
 

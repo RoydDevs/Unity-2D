@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
-  pointsOneBlock: 50
-  liveText: {fileID: 8867857930578054714}
-  scoreText: {fileID: 1601002127246221689}
   timerBallText: {fileID: 8479875664449265350}
+  timerPaddleText: {fileID: 1601002126822479799}
+  pointsOneBlock: 50
+  scoreText: {fileID: 1601002127246221689}
   totalLives: 3
+  liveText: {fileID: 8867857930578054714}
   titleLevel: {fileID: 8947236457573556758}
   livesLeft: 3
   currentScore: 0
@@ -198,6 +199,18 @@ MonoBehaviour:
 --- !u!114 &8479875664449265350 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7176898385794874809, guid: 1197ec7bbd0420c4da30c64bd9ff1644,
+    type: 3}
+  m_PrefabInstance: {fileID: 1601002126398120831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1601002126822479799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 964490440, guid: 1197ec7bbd0420c4da30c64bd9ff1644,
     type: 3}
   m_PrefabInstance: {fileID: 1601002126398120831}
   m_PrefabAsset: {fileID: 0}

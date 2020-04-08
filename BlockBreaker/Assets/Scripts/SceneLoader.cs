@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public void LoadNextScene()
-    {
-        var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+	{
+		FindObjectOfType<GameSession>().StopTimers();
+		var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		SceneManager.LoadScene(currentSceneIndex + 1);
-        LoseCollider.StopTimers = false;
     }
 
 	public void LoadStartScene()

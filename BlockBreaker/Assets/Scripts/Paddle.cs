@@ -1,27 +1,18 @@
-﻿using System;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
     [SerializeField] float screenWidthInUnits = 16f;
     [SerializeField] float screenMinWidthUnits = 1.5f;
     [SerializeField] float screenMaxWidthUnits = 15f;
-    [SerializeField] TextMeshProUGUI timerPaddleText;
-
-    private float timerPaddle = 5.0f;
-    private float timerPaddleReset = 5.0f;
-    private float lastWidthToReset;
-    private bool timerPaddleRunning;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        timerPaddleText.text = "";
-    }
 
     // Update is called once per frame
     void Update()
+    {
+        this.PaddlePosition();
+    }
+
+    private void PaddlePosition()
     {
         var currentPosX = Input.mousePosition.x / Screen.width * screenWidthInUnits;
         var paddlePos = new Vector2(this.transform.position.x, this.transform.position.y)
@@ -29,46 +20,17 @@ public class Paddle : MonoBehaviour
             x = Mathf.Clamp(currentPosX, screenMinWidthUnits, screenMaxWidthUnits)
         };
         this.transform.position = paddlePos;
-
-        if (LoseCollider.StopTimers) timerPaddle = 0f;
-
-        if (timerPaddleRunning)
-        {
-            timerPaddle -= Time.deltaTime;
-            var timerSecond = Convert.ToInt32(timerPaddle % 60);
-            if (timerSecond == 0)
-            {
-                //Reset paddle size
-                this.ResetPaddleSize();
-                //Clear timer
-                timerPaddle = timerPaddleReset;
-                timerPaddleText.text = "";
-                timerPaddleRunning = false;
-            }
-            else
-            {
-                timerPaddleText.text = "Paddle width " + timerSecond;
-            }
-        }
     }
 
-    public void UpdatePaddleSize(float widthToAdd)
+    public void UpdatePaddleSize(float width)
     {
-        if(timerPaddleRunning)
-        {
-            timerPaddle = timerPaddleReset;
-            this.ResetPaddleSize();
-        }
-
-        //Paddle size
-        var tempLocalScale = transform.localScale;
-        tempLocalScale.x += widthToAdd;
+        var tempLocalScale = this.transform.localScale;
+        tempLocalScale.x += width;
         this.transform.localScale = tempLocalScale;
-        //Start timer
-        if(!timerPaddleRunning) timerPaddleRunning = true;
-        //Text color timer
-        timerPaddleText.color = widthToAdd >= 0 ? Color.green : Color.red;
-        //Paddle position min and max
+    }
+    
+    public void UpdateMinMaxScreen(float widthToAdd)
+    {
         if (widthToAdd >= 0)
         {
             screenMinWidthUnits += widthToAdd;
@@ -79,26 +41,19 @@ public class Paddle : MonoBehaviour
             screenMinWidthUnits += widthToAdd * 2;
             screenMaxWidthUnits -= widthToAdd * 2;
         }
-        //To reset after -> send the opposite
-        lastWidthToReset = -widthToAdd;
     }
 
-    public void ResetPaddleSize()
+    public void ResetMinMaxScreen(float width)
     {
-        //Paddle size
-        var tempLocalScale = transform.localScale;
-        tempLocalScale.x += lastWidthToReset;
-        this.transform.localScale = tempLocalScale;
-        //Paddle position min and max
-        if(lastWidthToReset >= 0)
+        if (width >= 0)
         {
-            screenMinWidthUnits += lastWidthToReset * 2;
-            screenMaxWidthUnits -= lastWidthToReset * 2;
+            screenMinWidthUnits += width * 2;
+            screenMaxWidthUnits -= width * 2;
         }
         else
         {
-            screenMinWidthUnits += lastWidthToReset;
-            screenMaxWidthUnits -= lastWidthToReset;
+            screenMinWidthUnits += width;
+            screenMaxWidthUnits -= width;
         }
     }
 }

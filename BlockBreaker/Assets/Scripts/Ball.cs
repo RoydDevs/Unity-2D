@@ -56,7 +56,6 @@ public class Ball : MonoBehaviour
     {
         var paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
         this.transform.position = paddlePos + paddleToBallVector;
-        LoseCollider.StopTimers = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
