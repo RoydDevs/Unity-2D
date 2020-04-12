@@ -652,6 +652,11 @@ PrefabInstance:
       propertyPath: titleLevel
       value: 
       objectReference: {fileID: 616724077}
+    - target: {fileID: 4759532486611614885, guid: f23e66f692f8fa64fb1884886248dc98,
+        type: 3}
+      propertyPath: isAutoPlayEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4759532486611614887, guid: f23e66f692f8fa64fb1884886248dc98,
         type: 3}
       propertyPath: m_Name
@@ -710,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 8947236457573556758, guid: f23e66f692f8fa64fb1884886248dc98,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 17
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8947236457573556758, guid: f23e66f692f8fa64fb1884886248dc98,
         type: 3}
@@ -740,9 +745,7 @@ PrefabInstance:
     - target: {fileID: 8947236457573556758, guid: f23e66f692f8fa64fb1884886248dc98,
         type: 3}
       propertyPath: m_text
-      value: 'Level 1
-
-        the earth'
+      value: Level 1
       objectReference: {fileID: 0}
     - target: {fileID: 8947236457573556758, guid: f23e66f692f8fa64fb1884886248dc98,
         type: 3}

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +15,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] private int totalLives = 3;
     [SerializeField] TextMeshProUGUI liveText;
     [SerializeField] private TextMeshProUGUI titleLevel;
+    [SerializeField] bool isAutoPlayEnabled;
 
     //State variable
     [SerializeField] public int livesLeft = 3;
@@ -73,6 +72,11 @@ public class GameSession : MonoBehaviour
     public void ResetGame()
     {
         Destroy(this.gameObject);
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 
     #region Speed Ball
