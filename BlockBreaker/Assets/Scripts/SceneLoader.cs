@@ -5,7 +5,8 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadNextScene()
 	{
-		FindObjectOfType<GameSession>().StopTimers();
+		if(SceneManager.GetActiveScene().name.Contains("Level"))
+		    FindObjectOfType<GameSession>().StopTimers();
 		var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		SceneManager.LoadScene(currentSceneIndex + 1);
     }
